@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/aerolinea" xmlns:tns="http://www.example.org/aerolinea" elementFormDefault="qualified">
+	<element name="ComprarBoletoRequest">
+    	<complexType>
+        	<sequence>
+              	<element name="idVuelo" type="int"/>
+              	<element name="noAsiento" type="int"/>
+            	<element name="nombrePasajero" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="ComprarBoletoResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="exito" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="ConsultarBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="int"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ConsultarBoletoResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="idBoleto" type="int"/>
+				<element name="idVuelo" type="int"/>
+              	<element name="noAsiento" type="int"/>
+            	<element name="nombrePasajero" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="ModificarBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="int"/>
+				<element name="idVuelo" type="int"/>
+              	<element name="noAsiento" type="int"/>
+            	<element name="nombrePasajero" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ModificarBoletoResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="exito" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="EliminarBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="int"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="EliminarBoletoResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="exito" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="AgregarVueloRequest">
+    	<complexType>
+        	<sequence>
+        		<element name="salida" type="string"/>
+        		<element name="destino" type="string"/>
+        		<element name="fecha" type="date"/>
+        		<element name="hora" type="time"/>
+        		<element name="costo" type="int"/>
+        		<element name="noAsientos" type="int"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="AgregarVueloResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="exito" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="ConsultarVueloRequest">
+    	<complexType>
+        	<sequence>
+        		<element name="id" type="int"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="ConsultarVueloResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="id" type="int"/>
+        		<element name="salida" type="string"/>
+        		<element name="destino" type="string"/>
+        		<element name="fecha" type="date"/>
+        		<element name="hora" type="time"/>
+        		<element name="costo" type="int"/>
+        		<element name="noAsientos" type="int"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="EditarVueloRequest">
+    	<complexType>
+        	<sequence>
+        		<element name="id" type="int"/>
+        		<element name="salida" type="string"/>
+        		<element name="destino" type="string"/>
+        		<element name="fecha" type="date"/>
+        		<element name="hora" type="time"/>
+        		<element name="costo" type="int"/>
+        		<element name="noAsientos" type="int"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="EditarVueloResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="exito" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="EliminarVueloRequest">
+    	<complexType>
+        	<sequence>
+        		<element name="id" type="int"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="EliminarVueloResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="exito" type="string"/>
+            </sequence>
+    	</complexType>
+	</element>
+	<element name="BuscarVuelosRequest">
+    	<complexType />
+	</element>
+	<element name="BuscarVuelosResponse">
+    	<complexType>
+        	<sequence>
+        		<element name="Vuelos" maxOccurs="unbounded">
+    				<complexType>
+        				<sequence>
+			        		<element name="id" type="int"/>
+			        		<element name="salida" type="string"/>
+			        		<element name="destino" type="string"/>
+			        		<element name="fecha" type="date"/>
+			        		<element name="hora" type="time"/>
+			        		<element name="costo" type="int"/>
+            			</sequence>
+    				</complexType>
+				</element>
+			</sequence>
+    	</complexType>
+	</element>
+</schema>
