@@ -12,7 +12,10 @@
 	<element name="ComprarBoletoResponse">
     	<complexType>
         	<sequence>
-        		<element name="exito" type="string"/>
+        		<element name="idBoleto" type="int"/>
+				<element name="idVuelo" type="int"/>
+              	<element name="noAsiento" type="int"/>
+            	<element name="nombrePasajero" type="string"/>
             </sequence>
     	</complexType>
 	</element>
@@ -36,8 +39,6 @@
 	<element name="ModificarBoletoRequest">
 		<complexType>
 			<sequence>
-				<element name="idBoleto" type="int"/>
-				<element name="idVuelo" type="int"/>
               	<element name="noAsiento" type="int"/>
             	<element name="nombrePasajero" type="string"/>
 			</sequence>
@@ -46,7 +47,10 @@
 	<element name="ModificarBoletoResponse">
     	<complexType>
         	<sequence>
-        		<element name="exito" type="string"/>
+        		<element name="idBoleto" type="int"/>
+				<element name="idVuelo" type="int"/>
+              	<element name="noAsiento" type="int"/>
+            	<element name="nombrePasajero" type="string"/>
             </sequence>
     	</complexType>
 	</element>
@@ -79,7 +83,13 @@
 	<element name="AgregarVueloResponse">
     	<complexType>
         	<sequence>
-        		<element name="exito" type="string"/>
+        		<element name="id" type="int"/>
+        		<element name="salida" type="string"/>
+        		<element name="destino" type="string"/>
+        		<element name="fecha" type="date"/>
+        		<element name="hora" type="time"/>
+        		<element name="costo" type="int"/>
+        		<element name="noAsientos" type="int"/>
             </sequence>
     	</complexType>
 	</element>
@@ -106,7 +116,6 @@
 	<element name="EditarVueloRequest">
     	<complexType>
         	<sequence>
-        		<element name="id" type="int"/>
         		<element name="salida" type="string"/>
         		<element name="destino" type="string"/>
         		<element name="fecha" type="date"/>
@@ -119,7 +128,13 @@
 	<element name="EditarVueloResponse">
     	<complexType>
         	<sequence>
-        		<element name="exito" type="string"/>
+        		<element name="id" type="int"/>
+        		<element name="salida" type="string"/>
+        		<element name="destino" type="string"/>
+        		<element name="fecha" type="date"/>
+        		<element name="hora" type="time"/>
+        		<element name="costo" type="int"/>
+        		<element name="noAsientos" type="int"/>
             </sequence>
     	</complexType>
 	</element>

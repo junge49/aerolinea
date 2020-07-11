@@ -50,16 +50,15 @@ public class EndPoint {
 	@ResponsePayload
 	public ComprarBoletoResponse comprarBoleto(@RequestPayload ComprarBoletoRequest datos) {
 		ComprarBoletoResponse boleto = new ComprarBoletoResponse();
-		boleto.setExito("Su compra ha sido exitosa");
 		Boleto ticket = new Boleto();
 		ticket.setIdVuelo(datos.getIdVuelo());
 		ticket.setNoAsiento(datos.getNoAsiento());
 		ticket.setNombre(datos.getNombrePasajero());
 		iboleto.save(ticket);
-		/*boleto.setExito("Su compra ha sido exitosa.\n ID: "+ datos.getIdBoleto()+"\nSalida: "
-				+ vuelo.getSalida() +"\nDestino: "+ vuelo.getDestino()+"\nNumero de asiento: "
-				+datos.getNoAsiento()+"\nFecha: "+ vuelo.getFecha()+"\nHora de salida: "+vuelo.getHora()
-				+"\nCosto: "+vuelo.getCosto()+"\nNombre de pasajero: "+datos.getNombrePasajero()+".");*/
+		boleto.setIdBoleto(ticket.getId());
+		boleto.setIdVuelo(ticket.getIdVuelo());
+		boleto.setNoAsiento(ticket.getNoAsiento());
+		boleto.setNombrePasajero(ticket.getNombre());
 		return boleto;
 	}
 	
@@ -92,7 +91,6 @@ public class EndPoint {
 	@ResponsePayload
 	public ModificarBoletoResponse modificarBoleto(@RequestPayload ModificarBoletoRequest datos) {
 		ModificarBoletoResponse boleto = new ModificarBoletoResponse();
-		boleto.setExito("Su boleto "+ datos.getIdBoleto() +" ha sido modificado con éxito. ");
 		return boleto;
 	}
 	
@@ -102,7 +100,6 @@ public class EndPoint {
 	@ResponsePayload
 	public AgregarVueloResponse agregarVuelo(@RequestPayload AgregarVueloRequest vuelo) {
 		AgregarVueloResponse mensaje = new AgregarVueloResponse();
-		mensaje.setExito("Su vuelo se ha agregado correctamente.");
 		Vuelo v = new Vuelo();
 		v.setSalida(vuelo.getSalida());
 		v.setDestino(vuelo.getDestino());
@@ -111,6 +108,13 @@ public class EndPoint {
 		v.setCosto(vuelo.getCosto());
 		v.setNoAsientos(vuelo.getNoAsientos());
 		ivuelo.save(v);
+		mensaje.setId(v.getId());
+		mensaje.setSalida(vuelo.getSalida());
+		mensaje.setDestino(vuelo.getDestino());
+		mensaje.setFecha(vuelo.getFecha());
+		mensaje.setHora(vuelo.getHora());
+		mensaje.setCosto(vuelo.getCosto());
+		mensaje.setNoAsientos(vuelo.getNoAsientos());
 		return mensaje;
 	}
 	
@@ -142,7 +146,6 @@ public class EndPoint {
 	@ResponsePayload
 	public EditarVueloResponse editarVuelo(@RequestPayload EditarVueloRequest vuelo) {
 		EditarVueloResponse mensaje = new  EditarVueloResponse();
-		mensaje.setExito("El vuelo es este.");
 		return mensaje;
 	}
 	
